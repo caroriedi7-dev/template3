@@ -3,77 +3,93 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Até Encontrar | Fundação</title>
+<title>Até Encontrar | Campanha</title>
 
 <style>
 :root{
-  --bg:#F7FAFC;
-  --fg:#0F2A44;
-  --text:#1E2E36;
-  --muted:#5B6F7A;
-  --line:#D9E4EC;
+  --bg:#F5FBF9;
+  --fg:#0E3B2E;
+  --text:#10221C;
+  --muted:#4F6F65;
+  --accent:#1FBF8F;
+  --accent2:#0E7C66;
   --card:#FFFFFF;
-  --accent:#2E8BC0;
-  --radius:10px;
+  --radius:22px;
 }
 
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  background:var(--bg);
+  background:linear-gradient(180deg,#E9FFF7,#F5FBF9);
   color:var(--text);
-  line-height:1.6;
 }
 
-.wrap{max-width:960px;margin:0 auto;padding:32px}
-header{
-  border-bottom:1px solid var(--line);
-  background:#fff;
+.wrap{max-width:900px;margin:0 auto;padding:24px}
+
+.hero{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  padding:48px 28px;
+  border-radius:28px;
+  margin-top:24px;
 }
-.top{
+
+.hero h1{
+  font-size:42px;
+  margin:0 0 12px;
+}
+.hero p{
+  font-size:18px;
+  max-width:560px;
+}
+
+.cta{
+  margin-top:24px;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
+  gap:14px;
   flex-wrap:wrap;
 }
-nav a{
-  color:var(--muted);
-  margin-left:16px;
-  text-decoration:none;
-  font-size:14px;
-}
-nav a:hover{color:var(--fg)}
-
-h1,h2,h3{color:var(--fg)}
-h1{font-size:22px;margin:0}
-h2{font-size:26px;margin-top:40px}
-h3{font-size:18px;margin-top:0}
-
-section{margin-top:40px}
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:24px;
-}
-
-button{
-  background:var(--accent);
-  color:#fff;
+.cta button{
+  background:#fff;
+  color:var(--accent2);
   border:none;
-  padding:12px 18px;
-  border-radius:6px;
-  font-weight:600;
+  padding:14px 22px;
+  font-size:16px;
+  font-weight:800;
+  border-radius:999px;
   cursor:pointer;
 }
-button:hover{opacity:.9}
 
-footer{
-  margin-top:60px;
-  padding-top:24px;
-  border-top:1px solid var(--line);
+.section{
+  margin-top:36px;
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:28px;
+}
+
+.donateGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:16px;
+}
+@media(max-width:800px){
+  .donateGrid{grid-template-columns:1fr}
+}
+
+.donateBtn{
+  background:linear-gradient(135deg,#D9FFF1,#FFFFFF);
+  border-radius:20px;
+  padding:22px;
+  text-align:center;
+  font-weight:900;
+  cursor:pointer;
+  border:2px solid var(--accent);
+}
+.donateBtn span{
+  display:block;
+  margin-top:6px;
   font-size:13px;
   color:var(--muted);
 }
@@ -82,72 +98,45 @@ footer{
 
 <body>
 
-<header>
-  <div class="wrap top">
-    <h1>Até Encontrar</h1>
-    <nav>
-      <a href="#mission">Missão</a>
-      <a href="#pks">PKS</a>
-      <a href="#research">Pesquisa</a>
-      <a href="#transparency">Transparência</a>
-      <a href="#donate">Doar</a>
-    </nav>
+<div class="wrap">
+
+<div class="hero">
+  <h1>Até Encontrar</h1>
+  <p>
+    Enquanto a ciência procura respostas,
+    precisamos ganhar tempo para a vida.
+  </p>
+  <div class="cta">
+    <button onclick="location.href='#donate'">Doar agora</button>
+    <button onclick="location.href='#mission'">Entender</button>
   </div>
-</header>
+</div>
 
-<main class="wrap">
-
-<section>
-  <h2>Uma iniciativa científica para doenças raras</h2>
+<div id="mission" class="section">
+  <h2>Por que estamos aqui</h2>
   <p>
-    Até Encontrar é uma associação dedicada ao apoio à pesquisa científica
-    em doenças raras do neurodesenvolvimento, com foco em rigor,
-    transparência e responsabilidade ética.
+    Doenças raras não recebem investimento suficiente.
+    Sem recursos, não há pesquisa. Sem pesquisa, não há resposta.
   </p>
-</section>
+</div>
 
-<section id="mission" class="card">
-  <h3>Missão</h3>
-  <p>
-    Apoiar projetos científicos sérios, facilitar a colaboração entre famílias
-    e pesquisadores, e garantir total transparência no uso dos recursos.
-  </p>
-</section>
+<div class="section">
+  <h2>Uma frase que nos guia</h2>
+  <p><strong>
+    “Todas as doenças são curáveis. Ainda precisamos encontrar o tratamento.”
+  </strong></p>
+</div>
 
-<section id="pks" class="card">
-  <h3>Síndrome de Pallister-Killian (PKS)</h3>
-  <p>
-    PKS é uma condição genética rara, geralmente em mosaico,
-    com ampla variabilidade clínica. Cada paciente apresenta um perfil único.
-  </p>
-</section>
+<div id="donate" class="section">
+  <h2>Apoiar agora</h2>
+  <div class="donateGrid">
+    <div class="donateBtn">PIX <span>em breve</span></div>
+    <div class="donateBtn">Cartão <span>em breve</span></div>
+    <div class="donateBtn">Internacional <span>em breve</span></div>
+  </div>
+</div>
 
-<section id="research" class="card">
-  <h3>Pesquisa</h3>
-  <p>
-    A pesquisa em doenças raras exige tempo, metodologia rigorosa
-    e financiamento estável. Nosso papel é viabilizar essas etapas iniciais.
-  </p>
-</section>
+</div>
 
-<section id="transparency" class="card">
-  <h3>Transparência</h3>
-  <p>
-    Todos os recursos arrecadados serão reportados publicamente.
-    Relatórios financeiros e científicos serão disponibilizados.
-  </p>
-</section>
-
-<section id="donate" class="card">
-  <h3>Apoiar</h3>
-  <p>As informações de doação serão publicadas em breve.</p>
-  <button>Doar</button>
-</section>
-
-<footer>
-  © 2026 Até Encontrar · Ciência · Transparência · Ética
-</footer>
-
-</main>
 </body>
 </html>
