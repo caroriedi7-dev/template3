@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Até Encontrar | Pesquisa PKS</title>
-  <meta name="description" content="Uma campanha para iniciar pesquisa sobre a Síndrome de Pallister-Killian (PKS) com organoides cerebrais. Meta: US$ 500.000." />
+  <meta name="description" content="Campanha para iniciar pesquisa sobre PKS com organoides cerebrais. Meta: US$ 500.000." />
 
-  <!-- OG (preview do link quando você manda no WhatsApp/Instagram) -->
   <meta property="og:title" content="Até Encontrar | Pesquisa PKS" />
-  <meta property="og:description" content="Ajude a iniciar a pesquisa com organoides cerebrais. Meta: US$ 500.000." />
+  <meta property="og:description" content="Assista ao vídeo e ajude a iniciar a pesquisa com organoides cerebrais." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -20,18 +19,14 @@
       --text:#101820;
       --muted:#4B6068;
       --line:#D7E4F2;
-      --card:#FFFFFF;
-
+      --card:#fff;
       --accent:#22B07D;
       --accent2:#2563EB;
-      --dark:#0B1B2A;
-
-      --radius:22px;
       --shadow: 0 22px 70px rgba(13,47,99,.14);
       --shadow2: 0 12px 28px rgba(13,47,99,.10);
+      --radius:22px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -42,7 +37,6 @@
         var(--bg);
       line-height:1.6;
     }
-    a{color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:20px}
     header{
       position:sticky;top:0;z-index:30;
@@ -50,37 +44,21 @@
       backdrop-filter: blur(12px) saturate(180%);
       border-bottom:1px solid var(--line);
     }
-    .top{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .brand{display:flex;flex-direction:column}
-    .brand b{color:var(--fg);font-size:15px;letter-spacing:.2px}
-    .brand span{color:var(--muted);font-size:12px;font-weight:700}
-    nav{display:flex;gap:8px;flex-wrap:wrap}
-    nav a{
-      text-decoration:none;
-      color:var(--muted);
-      font-size:13px;
-      padding:8px 10px;border-radius:999px;
-    }
-    nav a:hover{background:rgba(37,99,235,.10);color:var(--fg)}
-    .controls{display:flex;gap:10px;flex-wrap:wrap}
+    .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .brand b{color:var(--fg);font-size:15px}
+    .brand span{display:block;color:var(--muted);font-size:12px;font-weight:750}
     .btn{
       border:1px solid var(--line);
       background:#fff;
-      padding:10px 12px;
-      border-radius:999px;
-      cursor:pointer;
-      font-weight:850;
-      color:var(--fg);
-      font-size:14px;
+      padding:10px 12px;border-radius:999px;
+      cursor:pointer;font-weight:850;color:var(--fg);font-size:14px;
+      text-decoration:none;display:inline-block;
     }
     .btnPrimary{
       border:none;color:#fff;
       background: linear-gradient(135deg, var(--accent2), var(--accent));
       box-shadow:var(--shadow2);
     }
-    .btnPrimary:hover{transform:translateY(-1px);transition:.15s}
     .hero{
       margin-top:18px;
       border-radius:32px;
@@ -88,85 +66,24 @@
       border:1px solid rgba(255,255,255,.6);
       box-shadow: var(--shadow);
       background: linear-gradient(135deg, rgba(37,99,235,.16), rgba(34,176,125,.18));
-    }
-    .heroInner{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
       padding:16px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:16px;
       align-items:stretch;
     }
-    @media (max-width:980px){ .heroInner{grid-template-columns:1fr} }
-
+    @media (max-width:980px){ .heroGrid{grid-template-columns:1fr} }
     .panel{
-      background: rgba(255,255,255,.90);
+      background: rgba(255,255,255,.92);
       border:1px solid rgba(255,255,255,.85);
       border-radius:26px;
-      padding:20px;
+      padding:18px;
     }
-    .kicker{margin:0 0 10px;color:var(--muted);font-size:14px;font-weight:800}
-    h1{
-      margin:0 0 10px;
-      color:var(--fg);
-      font-size:42px;
-      letter-spacing:-.7px;
-      line-height:1.05;
-    }
-    .sub{
-      margin:0 0 12px;
-      color:var(--muted);
-      font-size:16px;
-      max-width:75ch;
-    }
-    .highlight{
-      margin-top:12px;
-      background:rgba(11,27,42,.92);
-      color:#fff;
-      border-radius:18px;
-      padding:14px;
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-    }
-    .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      background: rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.18);
-      padding:8px 10px;border-radius:999px;
-      font-size:12px;font-weight:900;
-    }
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-    @media (max-width:980px){ .grid2{grid-template-columns:1fr} }
-
-    .card{
-      background: rgba(255,255,255,.92);
-      border:1px solid var(--line);
-      border-radius:26px;
-      padding:20px;
-      box-shadow:var(--shadow2);
-    }
-    .card h2{margin:0 0 8px;color:var(--fg);font-size:20px;letter-spacing:-.2px}
-    .card p{margin:0;color:var(--muted)}
-    .bullets{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-    .bullets li{margin:8px 0}
-
-    /* foto + nome */
-    .profile{
-      display:flex;gap:14px;align-items:center;
-      padding:14px;
-      border-radius:22px;
-      border:1px solid rgba(13,47,99,.10);
-      background: rgba(255,255,255,.95);
-      box-shadow:var(--shadow2);
-    }
-    .avatar{
-      width:88px;height:88px;border-radius:22px;
-      object-fit:cover;
-      border:1px solid rgba(13,47,99,.12);
-    }
-    .profile b{color:var(--fg);font-size:16px}
-    .profile span{display:block;color:var(--muted);font-size:13px;font-weight:750}
-
-    /* vídeo */
+    h1{margin:0 0 8px;color:var(--fg);font-size:34px;letter-spacing:-.6px}
+    .sub{margin:0;color:var(--muted)}
+    .ctaRow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
     .videoWrap{
       position:relative;width:100%;
       padding-top:56.25%;
@@ -176,30 +93,29 @@
       box-shadow:var(--shadow2);
       background:#000;
     }
-    .videoWrap iframe{
-      position:absolute;inset:0;width:100%;height:100%;border:0;
+    .videoWrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+    @media (max-width:980px){ .grid2{grid-template-columns:1fr} }
+    .card{
+      background: rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px;
+      box-shadow:var(--shadow2);
     }
-
-    /* barra fixa */
-    .donateBar{
-      position:fixed;left:0;right:0;bottom:0;z-index:50;
-      background:rgba(11,27,42,.94);
-      border-top:1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-    }
-    .donateBar .inner{
-      max-width:1100px;margin:0 auto;padding:12px 16px;
-      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-      color:#fff;align-items:center;
-    }
-    .donateBar .inner b{font-weight:1000}
-    footer{
-      margin-top:22px;
-      padding:18px 0 90px;
+    .card h2{margin:0 0 8px;color:var(--fg);font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .timeline{margin:10px 0 0;padding:0;list-style:none}
+    .timeline li{
+      margin:10px 0;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid rgba(13,47,99,.10);
+      background: rgba(255,255,255,.94);
       color:var(--muted);
-      border-top:1px solid var(--line);
-      font-size:13px;
+      font-size:14px;
     }
+    footer{margin-top:22px;padding:18px 0;color:var(--muted);border-top:1px solid var(--line);font-size:13px}
   </style>
 </head>
 
@@ -208,18 +124,9 @@
   <div class="wrap top">
     <div class="brand">
       <b>Até Encontrar</b>
-      <span>Pesquisa PKS • Organoides cerebrais</span>
+      <span>Assista • Entenda • Ajude a iniciar a pesquisa</span>
     </div>
-
-    <nav>
-      <a href="#historia">História</a>
-      <a href="#video">Vídeo</a>
-      <a href="#doar">Doar</a>
-      <a href="#pesquisa">Pesquisa</a>
-      <a href="#pks">O que é PKS</a>
-    </nav>
-
-    <div class="controls">
+    <div class="ctaRow" style="margin-top:0">
       <button class="btn btnPrimary" onclick="scrollTo('doar')">Doar agora</button>
       <button class="btn" onclick="copyLink()">Copiar link</button>
       <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
@@ -229,44 +136,10 @@
 
 <main class="wrap">
 
-  <section class="hero" id="historia">
-    <div class="heroInner">
+  <section class="hero" id="topo">
+    <div class="heroGrid">
       <div class="panel">
-        <p class="kicker">Uma história real. Um objetivo claro: iniciar a pesquisa.</p>
-        <h1>Até Encontrar</h1>
-        <p class="sub">
-          Nós somos os pais da <b>Giulia</b> (troque o nome). Ela tem <b>Síndrome de Pallister-Killian (PKS)</b>.
-          Hoje, não existe tratamento específico — apenas terapias de suporte.
-          <br><br>
-          Existe uma oportunidade concreta: um <b>laboratório nos EUA</b> pode iniciar uma pesquisa com <b>organoides cerebrais</b>.
-          Para começar rápido, precisamos levantar a meta inicial.
-        </p>
-
-        <div class="profile" style="margin-top:14px;">
-          <!-- TROQUE a foto abaixo pela foto real -->
-          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Foto" />
-          <div>
-            <b>Giulia (trocar nome)</b>
-            <span>PKS • atraso motor/social • precisamos acelerar a pesquisa</span>
-          </div>
-        </div>
-
-        <div class="ctaRow">
-          <button class="btn btnPrimary" onclick="scrollTo('doar')">Quero ajudar agora</button>
-          <button class="btn" onclick="scrollTo('video')">Ver o vídeo</button>
-        </div>
-
-        <div class="highlight" style="margin-top:14px;">
-          <span class="tag">🎯 Meta: US$ 500.000</span>
-          <span class="tag">🧠 Pesquisa com organoides</span>
-          <span class="tag">🚀 Início rápido após captação</span>
-        </div>
-      </div>
-
-      <div class="panel" id="video">
-        <h2 style="margin:0 0 10px;color:var(--fg);font-size:20px;">Assista (1 min)</h2>
         <div class="videoWrap">
-          <!-- TROQUE VIDEO_ID pelo ID do YouTube. Ex: https://www.youtube.com/watch?v=ABC123 -> VIDEO_ID = ABC123 -->
           <iframe
             src="https://www.youtube.com/embed/VIDEO_ID"
             title="Vídeo da campanha"
@@ -274,72 +147,72 @@
             allowfullscreen></iframe>
         </div>
         <p style="margin:10px 0 0;color:var(--muted);font-size:13px;">
-          (Quando você me mandar seu link do YouTube, eu já deixo o ID certo aqui.)
+          (Troque VIDEO_ID pelo seu YouTube.)
+        </p>
+      </div>
+
+      <div class="panel">
+        <h1>Ajude a iniciar a pesquisa sobre PKS</h1>
+        <p class="sub">
+          Nossa filha <b>Giulia</b> (troque o nome) tem <b>Síndrome de Pallister-Killian</b>. Hoje, não há tratamento específico.
+          Mas existe um caminho: <b>pesquisa com organoides cerebrais</b>.
         </p>
 
-        <div class="card" style="margin-top:16px;">
-          <h2>Nossa história (resumo)</h2>
-          <p>
-            • Nascimento: UTI neonatal, 10 dias no hospital, diagnóstico inicial de dolicocólon.<br>
-            • Até 4 meses: crescimento ok.<br>
-            • Depois: hipotonia e dificuldade para sustentar a cabeça → exames (IRM, EEG, fundo de olho, metabólicos, genética).<br>
-            • Diagnóstico: PKS (mosaico) → sem tratamento específico hoje.<br><br>
-            <b>Por isso a pesquisa é urgente.</b>
-          </p>
+        <div class="ctaRow">
+          <button class="btn btnPrimary" onclick="scrollTo('doar')">Quero ajudar</button>
+          <button class="btn" onclick="scrollTo('historia')">Ler a história</button>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h2>Meta</h2>
+          <p><b>US$ 500.000</b> para iniciar rapidamente a pesquisa (fase inicial com 3 crianças).</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="grid2" style="margin-top:18px;">
-    <div class="card" id="doar">
-      <h2>Doar agora</h2>
-      <p>
-        Nosso objetivo é levantar <b>US$ 500.000</b> para iniciar a pesquisa com 3 crianças.
-        Se você não puder doar, compartilhar já ajuda muito.
-      </p>
-
-      <div class="ctaRow" style="margin-top:12px;">
-        <!-- TROQUE os links de doação -->
-        <a class="btn btnPrimary" href="SEU_LINK_DOACAO_1" style="text-decoration:none;display:inline-block;">Doar (link 1)</a>
-        <a class="btn" href="SEU_LINK_DOACAO_2" style="text-decoration:none;display:inline-block;">Doar (link 2)</a>
-      </div>
-
-      <ul class="bullets">
-        <li>1 clique para doar</li>
-        <li>Compartilhe com 5 pessoas</li>
-        <li>Ajude a levar a campanha para mais famílias</li>
+  <section class="grid2" id="historia">
+    <div class="card">
+      <h2>Nossa história (linha do tempo)</h2>
+      <ul class="timeline">
+        <li><b>Nascimento:</b> UTI neonatal, 10 dias no hospital, diagnóstico inicial de dolicocólon.</li>
+        <li><b>Até 4 meses:</b> crescimento dentro do esperado.</li>
+        <li><b>Depois:</b> hipotonia e dificuldade de sustentar a cabeça → exames (IRM, EEG, etc.).</li>
+        <li><b>Diagnóstico:</b> PKS (mosaico). Não existe tratamento específico hoje.</li>
+        <li><b>Agora:</b> queremos iniciar pesquisa com organoides para abrir caminhos.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>Como sua ajuda faz diferença</h2>
-      <ul class="bullets">
-        <li>Viabiliza o início do projeto (logística + laboratório)</li>
-        <li>Permite criar organoides cerebrais e comparar respostas</li>
-        <li>Gera evidências iniciais para abrir portas a novas fases</li>
-      </ul>
-      <p style="margin-top:10px;">
-        <b>Sem promessas.</b> Com um plano real e pronto para começar.
+      <h2>Por que precisamos agir agora?</h2>
+      <p>
+        Porque existe um projeto possível e pronto para começar — o que falta é financiamento.
+        Sem pesquisa, nada anda. Com pesquisa, abrimos portas.
       </p>
+      <div class="ctaRow" style="margin-top:12px;">
+        <button class="btn btnPrimary" onclick="scrollTo('doar')">Doar agora</button>
+        <button class="btn" onclick="shareWhatsApp()">Compartilhar</button>
+      </div>
     </div>
   </section>
 
-  <section class="grid2" id="pesquisa">
+  <section class="grid2" id="doar">
     <div class="card">
-      <h2>O que é pesquisa com organoides?</h2>
-      <p>
-        Organoides cerebrais são “mini-modelos” gerados em laboratório a partir de células do próprio paciente.
-        Eles ajudam a estudar mecanismos do neurodesenvolvimento e testar hipóteses com mais segurança, antes de qualquer aplicação clínica.
-      </p>
+      <h2>Doar</h2>
+      <p>Troque os links abaixo pelos seus links reais.</p>
+      <div class="ctaRow" style="margin-top:12px;">
+        <a class="btn btnPrimary" href="SEU_LINK_DOACAO_1">Doar (link 1)</a>
+        <a class="btn" href="SEU_LINK_DOACAO_2">Doar (link 2)</a>
+      </div>
+      <p style="margin-top:10px;">Se não puder doar, compartilhar já ajuda muito.</p>
     </div>
+
     <div class="card">
-      <h2>O que essa fase entrega</h2>
-      <ul class="bullets">
-        <li>Modelos derivados do paciente para estudar mecanismos</li>
-        <li>Testes iniciais para avaliar hipóteses com mais segurança</li>
-        <li>Resultados para direcionar os próximos passos</li>
-      </ul>
+      <h2>O que são organoides cerebrais?</h2>
+      <p>
+        São modelos biológicos gerados em laboratório a partir de células do paciente.
+        Ajudam a estudar o desenvolvimento do cérebro e testar hipóteses com mais segurança.
+      </p>
     </div>
   </section>
 
@@ -347,33 +220,22 @@
     <div class="card">
       <h2>O que é PKS?</h2>
       <p>
-        PKS (Pallister-Killian) é uma condição genética rara, frequentemente em mosaico, com grande variabilidade entre crianças.
-        Atualmente, a medicina oferece cuidados de suporte (fisioterapia, acompanhamento, etc.).
+        PKS é uma condição genética rara, muitas vezes em mosaico, com grande variabilidade entre crianças.
+        Hoje, o cuidado é principalmente de suporte.
       </p>
     </div>
     <div class="card">
-      <h2>Por que casos tão diferentes?</h2>
+      <h2>Sem promessas — com plano</h2>
       <p>
-        Por ser mosaico, a proporção e distribuição de células afetadas varia muito. Por isso, comparar histórias em redes sociais nem sempre reflete a realidade de cada criança.
+        Não existe garantia de resultados, mas existe um plano estruturado e pronto para iniciar quando a meta for viabilizada.
       </p>
     </div>
   </section>
 
   <footer>
-    <div>© <span id="year"></span> Até Encontrar • Contato: <b>email@exemplo.org</b> • Instagram: <b>@ateencontrar</b></div>
+    <div>© <span id="year"></span> Até Encontrar • Contato: <b>email@exemplo.org</b></div>
   </footer>
 </main>
-
-<div class="donateBar" role="region" aria-label="Barra de doação">
-  <div class="inner">
-    <div><b>Meta:</b> US$ 500.000 • <b>PKS</b> • Pesquisa com organoides</div>
-    <div class="controls">
-      <button class="btn btnPrimary" onclick="scrollTo('doar')">Doar agora</button>
-      <button class="btn" onclick="copyLink()">Copiar link</button>
-      <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
-    </div>
-  </div>
-</div>
 
 <script>
   function scrollTo(id){
@@ -389,7 +251,7 @@
     }
   }
   function shareWhatsApp(){
-    const text = "Ajude a iniciar a pesquisa em PKS (organoides cerebrais). Meta: US$ 500.000. Link: " + location.href;
+    const text = "Assista e ajude a iniciar a pesquisa sobre PKS (organoides cerebrais). Meta: US$ 500.000. Link: " + location.href;
     window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
   }
   document.getElementById("year").textContent = new Date().getFullYear();
