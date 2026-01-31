@@ -3,30 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ajude a Giuliz | Pesquisa PKS</title>
-  <meta name="description" content="Ajude a Giuliz. Vamos iniciar a pesquisa sobre a Síndrome de Pallister-Killian (PKS) com organoides cerebrais. Meta: US$ 500.000." />
+  <title>Salvar a Giulia | Pesquisa PKS</title>
+  <meta name="description" content="Campanha para iniciar a pesquisa da Síndrome de Pallister-Killian (PKS) com organoides cerebrais. Precisamos de apoio para começar." />
 
-  <!-- Preview para WhatsApp/Instagram (OG) -->
-  <meta property="og:title" content="Ajude a Giuliz | Pesquisa PKS" />
-  <meta property="og:description" content="Assista ao vídeo e ajude a iniciar a pesquisa. Meta: US$ 500.000." />
+  <!-- Open Graph (pré-visualização WhatsApp / Facebook) -->
+  <meta property="og:title" content="Salvar a Giulia | Pesquisa PKS" />
+  <meta property="og:description" content="Ajude a iniciar a pesquisa em PKS com organoides cerebrais. Juntos, podemos acelerar um caminho real." />
+  <!-- IMPORTANT: quand tu auras upload l'image sur Vercel, mets ici l'URL publique -->
+  <meta property="og:image" content="https://template3-5if2.vercel.app/img/organoid.jpg" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="FOTO_HERO_URL" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root{
-      --bg:#0B1220;
-      --text:#EAF2FF;
-      --muted:#B9C6E0;
-      --line: rgba(255,255,255,.14);
-      --card: rgba(255,255,255,.06);
+      --bg:#fbfbff;
+      --text:#1f2330;
+      --muted:#5b6070;
 
-      --accent:#22B07D;
-      --accent2:#2563EB;
+      /* palette “salve a julinha”-like: clair, joyeux, doux */
+      --p1:#ff4d8d; /* rose */
+      --p2:#7c3aed; /* violet */
+      --p3:#2dd4bf; /* aqua */
+      --line:rgba(20,22,28,.10);
 
-      --shadow: 0 26px 80px rgba(0,0,0,.45);
-      --shadow2: 0 14px 36px rgba(0,0,0,.28);
-      --radius:24px;
+      --card:#ffffff;
+      --shadow: 0 18px 60px rgba(20,22,28,.12);
+      --shadow2: 0 10px 26px rgba(20,22,28,.10);
+      --r:22px;
     }
 
     *{box-sizing:border-box}
@@ -36,210 +39,244 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(900px 520px at 10% 10%, rgba(37,99,235,.18), transparent 62%),
-        radial-gradient(900px 520px at 90% 14%, rgba(34,176,125,.16), transparent 62%),
+        radial-gradient(900px 520px at 20% 5%, rgba(255,77,141,.14), transparent 60%),
+        radial-gradient(900px 520px at 85% 10%, rgba(124,58,237,.14), transparent 60%),
+        radial-gradient(900px 520px at 60% 90%, rgba(45,212,191,.10), transparent 60%),
         var(--bg);
-      line-height:1.55;
+      line-height:1.6;
     }
 
     a{color:inherit}
-    .wrap{max-width:1120px;margin:0 auto;padding:18px}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px}
 
-    /* HEADER simples */
+    /* header */
     header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(11,18,32,.72);
-      backdrop-filter: blur(12px);
+      position:sticky; top:0; z-index:50;
+      background: rgba(251,251,255,.82);
+      backdrop-filter: blur(12px) saturate(170%);
       border-bottom:1px solid var(--line);
     }
     .top{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:10px;flex-wrap:wrap;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
     }
-    .brand b{font-size:15px;letter-spacing:.2px}
-    .brand span{display:block;color:var(--muted);font-size:12px;font-weight:750}
-    nav{display:flex;gap:6px;flex-wrap:wrap}
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:1000;
+    }
+    .logoDot{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg,var(--p1),var(--p2));
+      box-shadow: 0 8px 18px rgba(255,77,141,.25);
+    }
+    nav{display:flex; gap:8px; flex-wrap:wrap}
     nav a{
-      text-decoration:none;color:var(--muted);
-      font-size:13px;padding:8px 10px;border-radius:999px;
-      border:1px solid transparent;
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:800;
+      font-size:14px;
     }
-    nav a:hover{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.06)}
+    nav a:hover{background:rgba(124,58,237,.10); color:var(--text)}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
 
     .btn{
       border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      padding:10px 12px;border-radius:999px;
-      cursor:pointer;font-weight:900;font-size:14px;
-      text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.95);
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:900;
+      box-shadow: var(--shadow2);
     }
     .btnPrimary{
       border:none;
-      color:#07131F;
-      background: linear-gradient(135deg, #8EE7FF, #59FFB0);
-      box-shadow: var(--shadow2);
+      color:#fff;
+      background: linear-gradient(135deg,var(--p1),var(--p2));
     }
-    .btnPrimary:hover{transform:translateY(-1px);transition:.15s}
+    .btn:hover{transform:translateY(-1px); transition:.15s}
 
-    /* HERO: foto grande + caixa pequena */
+    /* HERO like “foto grande + texto pequeno” */
     .hero{
       margin-top:16px;
       border-radius:32px;
       overflow:hidden;
-      box-shadow:var(--shadow);
-      border:1px solid var(--line);
-      min-height:560px;
-      position:relative;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.75);
       background:#000;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55) 55%, rgba(0,0,0,.78)),
-        url("FOTO_HERO_URL") center/cover no-repeat;
-      transform:scale(1.02);
-    }
-    .heroInner{
       position:relative;
-      padding:18px;
-      min-height:560px;
+      min-height:520px;
       display:flex;
       align-items:flex-end;
     }
-
-    .heroBox{
-      width:min(640px, 100%);
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:16px;
-      backdrop-filter: blur(10px);
+    .heroImg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:.92;
+      filter:saturate(1.05) contrast(1.02);
     }
-    .heroBox .tag{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:8px 10px;border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;font-weight:850;
-      margin-bottom:10px;
+    .heroOverlay{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05) 20%, rgba(0,0,0,.62) 85%),
+        radial-gradient(700px 380px at 20% 15%, rgba(255,77,141,.22), transparent 60%),
+        radial-gradient(700px 380px at 85% 18%, rgba(124,58,237,.18), transparent 60%);
     }
-    h1{
-      margin:0 0 8px;
-      font-size:36px;
-      line-height:1.06;
-      letter-spacing:-.7px;
-    }
-    .heroText{
-      margin:0;
-      color:rgba(234,242,255,.92);
-      font-size:14px;
-      max-width:80ch;
-    }
-    .heroActions{
-      display:flex;gap:10px;flex-wrap:wrap;
-      margin-top:12px;
-    }
-
-    /* Seções */
-    section{scroll-margin-top:90px}
-    .section{
-      margin-top:18px;
-      border-radius:28px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      box-shadow:var(--shadow2);
+    .heroCard{
+      position:relative;
+      width:100%;
       padding:18px;
     }
-    .sectionTitle{margin:0 0 8px;font-size:22px;letter-spacing:-.3px}
-    .sectionSub{margin:0 0 14px;color:var(--muted);font-size:14px}
+    .heroInner{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:16px;
+      align-items:end;
+    }
+    @media (max-width:980px){ .heroInner{grid-template-columns:1fr} }
 
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    @media(max-width:980px){ .grid3{grid-template-columns:1fr} .hero{min-height:620px} .heroInner{min-height:620px} }
+    .title{
+      margin:0;
+      font-size:48px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+      color:#fff;
+      font-weight:1000;
+      text-shadow: 0 12px 26px rgba(0,0,0,.35);
+    }
+    .sub{
+      margin:10px 0 0;
+      color: rgba(255,255,255,.88);
+      max-width:75ch;
+      font-size:18px;
+    }
+    .miniBar{
+      margin-top:14px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.20);
+      color:#fff;
+      font-weight:900;
+      font-size:13px;
+      backdrop-filter: blur(10px);
+    }
 
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media(max-width:980px){ .grid2{grid-template-columns:1fr} }
+    .donateBox{
+      background: rgba(255,255,255,.95);
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:26px;
+      padding:16px;
+      box-shadow: var(--shadow2);
+    }
+    .donateBox h3{margin:0 0 8px; font-size:18px}
+    .donateBox p{margin:0; color:var(--muted); font-size:13px}
+    .donateBox .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+    /* sections */
+    section{scroll-margin-top:90px}
+    .sectionTitle{
+      margin:26px 0 10px;
+      font-size:26px;
+      letter-spacing:-.2px;
+      font-weight:1000;
+    }
+    .sectionSub{margin:0;color:var(--muted);max-width:88ch}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+      align-items:stretch;
+    }
+    @media (max-width:980px){ .grid2{grid-template-columns:1fr} }
 
     .card{
+      background: rgba(255,255,255,.95);
       border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
-      border-radius:22px;
-      padding:16px;
+      border-radius:26px;
+      padding:18px;
+      box-shadow: var(--shadow2);
     }
-    .card h3{margin:0 0 8px;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;font-weight:850;
-      margin-top:10px;
-    }
+    .card h4{margin:0 0 10px; font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .bullets{margin:12px 0 0; padding-left:18px; color:var(--muted)}
+    .bullets li{margin:8px 0}
 
-    /* Botões campanha */
-    .card a.action{
-      margin-top:12px;
-      display:inline-flex;
-      text-decoration:none;
-    }
-
-    /* Vídeo */
+    /* video */
     .videoWrap{
-      position:relative;width:100%;
+      position:relative;
+      width:100%;
       padding-top:56.25%;
       border-radius:22px;
       overflow:hidden;
       border:1px solid var(--line);
+      box-shadow: var(--shadow2);
       background:#000;
     }
-    .videoWrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .videoWrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
 
-    /* Progresso */
-    .progress{
-      border-radius:22px;
+    /* campaigns/rifas */
+    .campaigns{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    @media (max-width:980px){ .campaigns{grid-template-columns:1fr} }
+
+    .camp{
+      background: rgba(255,255,255,.95);
       border:1px solid var(--line);
-      background:rgba(0,0,0,.20);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+    }
+    .campTop{
       padding:14px;
+      background: linear-gradient(135deg, rgba(255,77,141,.12), rgba(124,58,237,.10));
+      border-bottom:1px solid var(--line);
     }
-    .progressTop{
-      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
-      color:var(--muted);font-size:12px;
-    }
-    .bar{
-      margin-top:10px;height:12px;border-radius:999px;
-      background:rgba(255,255,255,.10);
-      overflow:hidden;border:1px solid rgba(255,255,255,.14);
-    }
-    .bar>div{
-      height:100%;width:0%;
-      background: linear-gradient(135deg, #8EE7FF, #59FFB0);
-      border-radius:999px;
-    }
+    .campTop b{display:block; font-size:16px}
+    .campBody{padding:14px; color:var(--muted); font-size:14px}
+    .campBody .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-    /* Barra fixa */
-    .donateBar{
-      position:fixed;left:0;right:0;bottom:0;z-index:60;
-      background:rgba(11,18,32,.92);
-      border-top:1px solid var(--line);
-      backdrop-filter: blur(12px);
-    }
-    .donateBar .inner{
-      max-width:1120px;margin:0 auto;padding:12px 16px;
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;
-    }
-    .donateBar span{color:var(--muted);font-size:13px}
-
+    /* footer */
     footer{
-      margin-top:18px;
-      padding:16px 0 92px;
+      margin-top:26px;
+      padding:18px 0 90px;
+      border-top:1px solid var(--line);
       color:var(--muted);
       font-size:13px;
+    }
+
+    /* bottom donate bar */
+    .donateBar{
+      position:fixed; left:0; right:0; bottom:0;
+      z-index:60;
+      background: rgba(255,255,255,.90);
+      backdrop-filter: blur(12px) saturate(170%);
       border-top:1px solid var(--line);
     }
+    .donateBarInner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .donateBarInner b{font-weight:1000}
+    .muted{color:var(--muted)}
   </style>
 </head>
 
@@ -247,194 +284,251 @@
 <header>
   <div class="wrap top">
     <div class="brand">
-      <b>Ajude a Giuliz</b>
-      <span>Pesquisa PKS • Organoides cerebrais • Meta: US$ 500.000</span>
+      <span class="logoDot"></span>
+      <span>Salvar a Giulia</span>
     </div>
 
     <nav>
-      <a href="#campanhas">Campanhas</a>
-      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#historia">História</a>
       <a href="#video">Vídeo</a>
-      <a href="#doar">Doar</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#campanhas">Campanhas</a>
+      <a href="#pesquisa">Pesquisa</a>
+      <a href="#ajudar">Como ajudar</a>
     </nav>
 
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn btnPrimary" onclick="scrollToId('doar')">Doar agora</button>
-      <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
+    <div class="actions">
+      <button class="btn" onclick="copyLink()">Copiar link</button>
+      <button class="btn btnPrimary" onclick="scrollTo('ajudar')">Doar / Ajudar</button>
     </div>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- HERO com foto grande + caixa pequena -->
-  <section class="hero" aria-label="Capa">
-    <div class="heroInner">
-      <div class="heroBox">
-        <div class="tag">❤️ Pedido urgente</div>
-        <h1>Ajude a Giuliz a ter um futuro</h1>
-        <p class="heroText">
-          Hoje, não existe tratamento específico para a <b>Síndrome de Pallister-Killian (PKS)</b>.
-          Existe um caminho concreto: <b>pesquisa com organoides cerebrais</b>.
-          Precisamos levantar <b>US$ 500.000</b> para começar.
-        </p>
+  <!-- HERO -->
+  <section class="hero" id="topo" aria-label="Capa">
+    <img class="heroImg" src="img/giulia-hero.jpg" alt="Foto da Giulia" />
+    <div class="heroOverlay" aria-hidden="true"></div>
 
-        <div class="heroActions">
-          <a class="btn btnPrimary" href="SEU_LINK_DOACAO_PRINCIPAL">Doar agora</a>
-          <button class="btn" onclick="scrollToId('video')">Ver o vídeo</button>
-          <button class="btn" onclick="copyLink()">Copiar link</button>
-        </div>
+    <div class="heroCard">
+      <div class="heroInner">
+        <div>
+          <h1 class="title">Giulia &amp; PKS</h1>
+          <p class="sub">
+            A Giulia tem <b>Síndrome de Pallister–Killian (PKS)</b>.
+            Hoje não existe tratamento específico — mas existe ciência possível.
+            Estamos levantando apoio para <b>iniciar uma pesquisa com organoides cerebrais</b> e abrir um caminho real.
+          </p>
 
-        <div style="margin-top:12px;">
-          <div class="progress" aria-label="Progresso da campanha">
-            <div class="progressTop">
-              <div><b>Arrecadado:</b> <span id="raisedText">—</span></div>
-              <div><b>Meta:</b> <span id="goalText">—</span></div>
-              <div><b>Progresso:</b> <span id="pctText">—</span></div>
-            </div>
-            <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
-            <div style="margin-top:8px;color:var(--muted);font-size:12px;">
-              Atualize no código: <b>VALOR_ARRECADADO_USD</b>.
-            </div>
+          <div class="miniBar">
+            <span class="pill">💗 Uma história real</span>
+            <span class="pill">🧠 Organoides cerebrais</span>
+            <span class="pill">⚡ Pesquisa pronta para começar</span>
           </div>
         </div>
 
+        <div class="donateBox" id="ajudar">
+          <h3>Como ajudar agora</h3>
+          <p>
+            Se você não puder doar, <b>compartilhar</b> já muda tudo.
+          </p>
+          <div class="row">
+            <button class="btn btnPrimary" onclick="openDonate()">Doar</button>
+            <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
+          </div>
+          <p class="muted" style="margin-top:10px;">
+            (Links de doação você coloca depois.)
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CAMPANHAS (rifas etc.) -->
-  <section class="section" id="campanhas">
-    <h2 class="sectionTitle">Campanhas</h2>
+  <!-- HISTÓRIA -->
+  <section id="historia">
+    <h2 class="sectionTitle">A nossa história</h2>
     <p class="sectionSub">
-      Se você não puder doar agora, participar de uma campanha ou compartilhar já ajuda muito.
-    </p>
-
-    <div class="grid3">
-      <div class="card">
-        <h3>🎟️ Rifa Solidária</h3>
-        <p>Participe da rifa e ajude a arrecadar para a pesquisa.</p>
-        <div class="pill">Status: em breve</div>
-        <a class="btn action" href="LINK_DA_RIFA">Abrir rifa</a>
-      </div>
-
-      <div class="card">
-        <h3>🛍️ Bazar / Loja</h3>
-        <p>Itens e doações revertidas para a campanha.</p>
-        <div class="pill">Status: em breve</div>
-        <a class="btn action" href="LINK_DO_BAZAR">Ver bazar</a>
-      </div>
-
-      <div class="card">
-        <h3>🤝 Parcerias / Empresas</h3>
-        <p>Se sua empresa pode ajudar (doação, match, divulgação), fale com a gente.</p>
-        <div class="pill">Email / WhatsApp</div>
-        <a class="btn action" href="LINK_CONTATO">Quero ajudar</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIAGNÓSTICO -->
-  <section class="section" id="diagnostico">
-    <h2 class="sectionTitle">Diagnóstico</h2>
-    <p class="sectionSub">
-      Um resumo simples, sem termos difíceis — para qualquer pessoa entender.
+      A emoção importa — porque por trás da pesquisa existe uma criança, uma família e um tempo que não volta.
+      Aqui vamos contar o essencial, com respeito, sem espetáculo.
     </p>
 
     <div class="grid2">
       <div class="card">
-        <h3>O que é PKS?</h3>
+        <h4>O começo</h4>
         <p>
-          A <b>Síndrome de Pallister-Killian (PKS)</b> é uma condição genética rara, muitas vezes em <b>mosaico</b>.
-          Isso significa que nem todas as células do corpo são iguais — e por isso os sintomas podem variar muito.
+          A Giulia foi para a UTI neonatal ao nascer. Ficamos 10 dias no hospital e saímos com o diagnóstico de
+          <b>dolichocolon</b>. Depois, tudo parecia entrar nos eixos: ela crescia e evoluía bem.
         </p>
-        <div class="pill">Hoje: terapias de suporte</div>
+        <ul class="bullets">
+          <li>Primeiros meses: crescimento esperado</li>
+          <li>Por volta do 4º mês: começou a hipotonia e dificuldade para sustentar a cabeça</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>Por que pesquisa?</h3>
+        <h4>A busca</h4>
         <p>
-          Porque é o que abre caminhos para tratamento.
-          A pesquisa com <b>organoides cerebrais</b> ajuda a entender mecanismos e testar hipóteses com mais segurança,
-          sem experimentar diretamente nas crianças.
+          Vieram exames, hospitalização, investigação metabólica e genética. O cariótipo sanguíneo e o exoma deram normais.
+          Até que o geneticista pediu outro exame em outras células (frottis buccal) — e então chegou o diagnóstico:
+          <b>Pallister–Killian (i12p)</b>.
         </p>
-        <div class="pill">Meta: iniciar rápido</div>
+        <ul class="bullets">
+          <li>IRM / EEG / fundo de olho: normais</li>
+          <li>Diagnóstico confirmado em células diferentes do sangue</li>
+          <li>Hoje: apenas terapias de suporte (fisioterapia, psicomotricidade)</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- VÍDEO -->
-  <section class="section" id="video">
-    <h2 class="sectionTitle">Vídeo</h2>
-    <p class="sectionSub">Assista e compartilhe. Isso faz a campanha crescer.</p>
+  <section id="video">
+    <h2 class="sectionTitle">Assista ao vídeo</h2>
+    <p class="sectionSub">Um vídeo curto ajuda as pessoas a entenderem e sentirem a urgência.</p>
 
-    <div class="videoWrap">
-      <iframe
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        title="Vídeo da campanha"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+    <div class="card" style="margin-top:16px;">
+      <div class="videoWrap" aria-label="Vídeo do YouTube">
+        <!-- Remplace YOUTUBE_VIDEO_ID par l’ID de ta vidéo -->
+        <iframe
+          src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+          title="Vídeo da campanha"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p class="muted" style="margin-top:10px;">
+        Dica: se sua URL é https://www.youtube.com/watch?v=ABCDE, então o ID é ABCDE.
+      </p>
     </div>
-
-    <p style="margin:10px 0 0;color:var(--muted);font-size:13px;">
-      Dica: o ID do YouTube é o que aparece depois de <b>watch?v=</b>.
-    </p>
   </section>
 
-  <!-- DOAR -->
-  <section class="section" id="doar">
-    <h2 class="sectionTitle">Doar agora</h2>
-    <p class="sectionSub">Escolha uma forma de doação (troque os links).</p>
+  <!-- DIAGNÓSTICO -->
+  <section id="diagnostico">
+    <h2 class="sectionTitle">O diagnóstico (PKS)</h2>
+    <p class="sectionSub">
+      PKS é rara e geralmente em mosaico — por isso cada criança é única. Hoje, a medicina oferece cuidados de suporte.
+      O que pode mudar o futuro é pesquisa aplicada.
+    </p>
 
-    <div class="grid3">
+    <div class="grid2">
       <div class="card">
-        <h3>💳 Doação principal</h3>
-        <p>Cartão / plataforma segura.</p>
-        <a class="btn action btnPrimary" href="SEU_LINK_DOACAO_PRINCIPAL">Doar agora</a>
+        <h4>Por que é tão variável?</h4>
+        <p>
+          Em mosaico, a proporção e distribuição das células afetadas podem variar muito.
+          Por isso, comparar casos nas redes nem sempre reflete a realidade de cada criança.
+        </p>
       </div>
 
       <div class="card">
-        <h3>🇧🇷 PIX</h3>
-        <p>Chave / QR Code do Brasil.</p>
-        <a class="btn action" href="SEU_LINK_PIX">Abrir PIX</a>
-      </div>
-
-      <div class="card">
-        <h3>🌍 Internacional</h3>
-        <p>PayPal / cartão.</p>
-        <a class="btn action" href="SEU_LINK_INTERNACIONAL">Doar fora do Brasil</a>
+        <h4>O que existe hoje?</h4>
+        <p>
+          Tratamentos de suporte: fisioterapia, acompanhamento multidisciplinar, estimulação, etc.
+          Mas ainda falta um caminho terapêutico específico.
+        </p>
       </div>
     </div>
+  </section>
 
-    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn" onclick="shareWhatsApp()">Compartilhar no WhatsApp</button>
-      <button class="btn" onclick="copyLink()">Copiar link</button>
+  <!-- CAMPANHAS / RIFAS -->
+  <section id="campanhas">
+    <h2 class="sectionTitle">Campanhas (rifas, eventos, ações)</h2>
+    <p class="sectionSub">
+      Aqui você coloca tudo que vocês fazem para arrecadar: rifas, eventos, produtos, bazar, etc.
+    </p>
+
+    <div class="campaigns">
+      <div class="camp">
+        <div class="campTop"><b>🎟️ Rifa solidária</b><span class="muted">em breve</span></div>
+        <div class="campBody">
+          Descreva a rifa, valor, prêmio e como comprar.
+          <div class="row">
+            <button class="btn btnPrimary" onclick="openLink('#')">Ver detalhes</button>
+            <button class="btn" onclick="openLink('#')">Comprar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="camp">
+        <div class="campTop"><b>🎉 Evento / Festa</b><span class="muted">em breve</span></div>
+        <div class="campBody">
+          Data, local, como participar e como ajudar.
+          <div class="row">
+            <button class="btn btnPrimary" onclick="openLink('#')">Ver detalhes</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="camp">
+        <div class="campTop"><b>🛍️ Ação / Loja</b><span class="muted">em breve</span></div>
+        <div class="campBody">
+          Se vocês vendem algo (camisa, docinhos, etc.), coloque aqui.
+          <div class="row">
+            <button class="btn btnPrimary" onclick="openLink('#')">Apoiar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PESQUISA -->
+  <section id="pesquisa">
+    <h2 class="sectionTitle">Pesquisa com organoides cerebrais</h2>
+    <p class="sectionSub">
+      A ideia é criar um modelo biológico em laboratório para estudar mecanismos e testar hipóteses com mais segurança,
+      antes de qualquer aplicação clínica.
+    </p>
+
+    <div class="grid2">
+      <div class="card">
+        <h4>O que são organoides?</h4>
+        <p>
+          São “mini-modelos” em laboratório que ajudam a observar como o cérebro se desenvolve e reage em condições específicas.
+          Isso pode acelerar a triagem de caminhos promissores.
+        </p>
+        <img src="img/organoid.jpg" alt="Imagem de organoide cerebral" style="width:100%;border-radius:18px;margin-top:12px;border:1px solid var(--line);" />
+        <p class="muted" style="margin-top:10px;">(Você pode trocar esta imagem quando quiser.)</p>
+      </div>
+
+      <div class="card">
+        <h4>O que essa fase entrega?</h4>
+        <p>
+          Evidências iniciais (“prova de princípio”) para entender quais caminhos fazem sentido e guiar próximos passos.
+          Sem promessas mágicas — mas com um plano real.
+        </p>
+        <ul class="bullets">
+          <li>Modelos derivados do paciente</li>
+          <li>Testes iniciais mais seguros</li>
+          <li>Resultados para orientar próximas etapas</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div>© <span id="year"></span> Ajude a Giuliz • Contato: <b>email@exemplo.org</b> • Instagram: <b>@ateencontrar</b></div>
+    <div>© <span id="year"></span> Salvar a Giulia</div>
+    <div class="muted" style="margin-top:8px;">
+      Contato: <b>email@exemplo.org</b> · Instagram: <b>@coloque_aqui</b>
+    </div>
   </footer>
 
 </main>
 
 <!-- Barra fixa -->
-<div class="donateBar" role="region" aria-label="Barra de doação">
-  <div class="inner">
-    <div><b>Meta:</b> US$ 500.000 • <span>Pesquisa PKS com organoides</span></div>
+<div class="donateBar" role="region" aria-label="Barra de ajuda">
+  <div class="donateBarInner">
+    <div>
+      <b>Salvar a Giulia</b> <span class="muted">· Pesquisa PKS com organoides</span>
+    </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn btnPrimary" href="SEU_LINK_DOACAO_PRINCIPAL">Doar agora</a>
+      <button class="btn btnPrimary" onclick="openDonate()">Doar</button>
       <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
+      <button class="btn" onclick="copyLink()">Copiar link</button>
     </div>
   </div>
 </div>
 
 <script>
-  // ======= CONFIG (MUDE AQUI) =======
-  const GOAL_USD = 500000;
-  const VALOR_ARRECADADO_USD = 0; // ex: 12500
-
-  function scrollToId(id){
+  function scrollTo(id){
     const el = document.getElementById(id);
     if(el) el.scrollIntoView({behavior:"smooth"});
   }
@@ -442,34 +536,31 @@
   function copyLink(){
     const url = location.href;
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(()=>alert("Link copiado!")).catch(()=>prompt("Copie o link:", url));
+      navigator.clipboard.writeText(url)
+        .then(()=>alert("Link copiado!"))
+        .catch(()=>prompt("Copie o link:", url));
     }else{
       prompt("Copie o link:", url);
     }
   }
 
   function shareWhatsApp(){
-    const text = "Ajude a Giuliz: pesquisa sobre PKS com organoides cerebrais. Meta: US$ 500.000. Link: " + location.href;
+    const text = "Ajude a Giulia e a pesquisa em PKS. Link: " + location.href;
     window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
   }
 
-  function formatUSD(n){
-    const val = Math.round(Number(n || 0));
-    return "US$ " + val.toLocaleString("en-US");
+  function openLink(url){
+    if(!url || url === "#"){ alert("Coloque o link aqui depois 🙂"); return; }
+    window.open(url, "_blank");
   }
 
-  function updateProgress(){
-    const raised = Math.max(0, Number(VALOR_ARRECADADO_USD || 0));
-    const pct = Math.min(100, (raised / GOAL_USD) * 100);
-
-    document.getElementById("raisedText").textContent = formatUSD(raised);
-    document.getElementById("goalText").textContent   = formatUSD(GOAL_USD);
-    document.getElementById("pctText").textContent    = (isFinite(pct) ? pct.toFixed(1) : "0.0") + "%";
-    document.getElementById("barFill").style.width    = (isFinite(pct) ? pct : 0) + "%";
+  function openDonate(){
+    // Coloque aqui seus links quando tiver (PIX, cartão, internacional, etc.)
+    alert("Aqui você vai colocar o link de doação quando estiver pronto 🙂");
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
-  updateProgress();
 </script>
+
 </body>
 </html>
