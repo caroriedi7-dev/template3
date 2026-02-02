@@ -366,6 +366,20 @@
     }
 
     .btnBar:hover,.btnBarGhost:hover{opacity:.92}
+    
+    /* language switch */
+.langSelect{
+  font-size:14px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--blue);
+  cursor:pointer;
+  font-weight:950;
+}
+.langSelect:focus{outline:2px solid rgba(30,99,255,.25); outline-offset:2px;}
+
   </style>
 </head>
 
@@ -392,6 +406,14 @@
         <button class="btn btnPrimary" onclick="scrollTo('doacoes')">Doar agora</button>
         <button class="btn" onclick="copyLink()">Copiar link</button>
         <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
+
+        <select class="langSelect" id="langSelect" aria-label="Idioma">
+  <option value="pt" selected>PT</option>
+  <option value="fr">FR</option>
+  <option value="en">EN</option>
+  <option value="es">ES</option>
+</select>
+
       </div>
     </div>
   </header>
@@ -838,6 +860,21 @@
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Language switch (page-based)
+(function(){
+  const sel = document.getElementById("langSelect");
+  if(!sel) return;
+
+  sel.addEventListener("change", function(){
+    const v = sel.value;
+    if(v === "pt") window.location.href = "index.html";
+    if(v === "fr") window.location.href = "fr.html";
+    if(v === "en") window.location.href = "en.html";
+    if(v === "es") window.location.href = "es.html";
+  });
+})();
+
   </script>
 </body>
 </html>
