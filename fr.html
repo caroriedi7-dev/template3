@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sauver Giulia | Recherche PKS</title>
+
+  <meta
+    name="description"
+    content="Campagne pour lancer une recherche sur le syndrome de Pallister-Killian (PKS) avec des organoïdes cérébraux. Objectif : 500 000 $."
+  />
+
+  <!-- Social preview (à remplacer plus tard) -->
+  <meta property="og:title" content="Sauver Giulia | Recherche PKS" />
+  <meta
+    property="og:description"
+    content="Aidez à lancer la recherche sur le PKS avec des organoïdes cérébraux. Objectif : 500 000 $."
+  />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=1600&q=80"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#F2FBF7;
+      --card:#FFFFFF;
+      --ink:#0F1F26;
+      --muted:#3F565E;
+
+      --blue:#0B2E6B;
+      --blue2:#1E63FF;
+      --green:#19B67A;
+      --gold:#D7AF4A;
+      --line:#D2E6DF;
+
+      --radius:22px;
+      --shadow: 0 18px 60px rgba(11,46,107,.16);
+      --shadow2: 0 12px 28px rgba(11,46,107,.10);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      line-height:1.65;
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(30,99,255,.14), transparent 62%),
+        radial-gradient(900px 520px at 88% 12%, rgba(25,182,122,.12), transparent 62%),
+        linear-gradient(180deg, rgba(215,175,74,.06), transparent 30%),
+        var(--bg);
+    }
+
+    a{color:inherit}
+    .wrap{max-width:1120px;margin:0 auto;padding:18px}
+    .muted{color:var(--muted)}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(242,251,247,.92);
+      backdrop-filter: blur(12px) saturate(180%);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;flex-wrap:wrap;
+    }
+
+    .brand{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
+    .brand b{color:var(--blue);font-size:15px;letter-spacing:.2px}
+    .brand small{color:var(--muted);font-weight:950}
+
+    nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    nav a{
+      font-size:14px;color:var(--muted);
+      padding:8px 10px;border-radius:999px;text-decoration:none;
+    }
+    nav a:hover{background:rgba(30,99,255,.12);color:var(--blue)}
+
+    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .btn{
+      font-size:14px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;color:var(--blue);
+      cursor:pointer;
+      font-weight:950;
+    }
+    .btn:hover{opacity:.95}
+
+    .btnPrimary{
+      border:none;color:#1b1402;
+      background: linear-gradient(135deg, #f3d37f, var(--gold));
+      box-shadow: var(--shadow2);
+      font-weight:1100;
+    }
+
+    .btnBlue{
+      border:none;color:#fff;
+      background: linear-gradient(135deg, var(--blue2), var(--green));
+      box-shadow: var(--shadow2);
+      font-weight:1100;
+    }
+
+    @media (max-width:900px){
+      nav{width:100%}
+      .controls{width:100%;justify-content:flex-start}
+    }
+
+    .heroTop{
+      margin-top:16px;
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.70);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.92);
+    }
+
+    .heroTopInner{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:16px;
+      padding:18px;
+      align-items:stretch;
+    }
+
+    @media (max-width:980px){ .heroTopInner{grid-template-columns:1fr} }
+
+    .heroText{
+      background: rgba(255,255,255,.96);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px;
+      box-shadow: var(--shadow2);
+    }
+
+    .heroKicker{margin:0 0 8px;color:var(--muted);font-size:13px;font-weight:1000}
+
+    .heroTitle{
+      margin:0 0 10px;
+      color:var(--blue);
+      font-size:46px;
+      line-height:1.05;
+      letter-spacing:-.9px;
+      font-weight:1200;
+    }
+
+    .heroSub{margin:0 0 12px;color:var(--muted);font-size:16px}
+    .heroSub b{color:var(--blue)}
+    .heroCTA{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(11,46,107,.14);
+      box-shadow: var(--shadow2);
+      font-size:13px;font-weight:950;color:var(--blue);
+      white-space:nowrap;
+    }
+
+    .heroPhoto{
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      background:#fff;
+      min-height:420px;
+    }
+    .heroPhoto img{
+      width:100%;
+      height:100%;
+      min-height:420px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .photos{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+      margin-top:16px;
+    }
+    @media (max-width:980px){ .photos{grid-template-columns:1fr} }
+
+    .photoBig{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      min-height:320px;
+      background:#fff;
+    }
+    .photoBig img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .photoGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .photoSmall{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      min-height:154px;
+      background:#fff;
+    }
+    .photoSmall img{width:100%;height:100%;object-fit:cover;display:block}
+
+    section{scroll-margin-top:92px}
+
+    .sectionTitle{
+      margin:24px 0 10px;
+      color:var(--blue);
+      font-size:28px;
+      letter-spacing:-.2px;
+      font-weight:1200;
+    }
+
+    .sectionSub{
+      margin:0 0 14px;
+      color:var(--muted);
+      max-width:92ch;
+      font-size:15.5px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width:980px){ .grid2{grid-template-columns:1fr} }
+
+    .card{
+      background: rgba(255,255,255,.93);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px;
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;left:0;top:0;bottom:0;width:6px;
+      background: linear-gradient(180deg, var(--blue2), var(--green));
+      opacity:.9;
+    }
+
+    .cardInner{position:relative}
+    .card h3,.card h4{margin:0 0 10px;color:var(--blue);font-weight:1200}
+    .card p{margin:0;color:var(--muted)}
+    .list{margin:12px 0 0;padding-left:18px;color:var(--muted)}
+    .list li{margin:8px 0}
+
+    .videoWrap{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      background:#000;
+      margin-top:10px;
+    }
+    .videoWrap iframe{
+      position:absolute;inset:0;
+      width:100%;height:100%;
+      border:0;
+    }
+
+    .campaigns{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:10px;
+    }
+    @media (max-width:980px){ .campaigns{grid-template-columns:1fr} }
+
+    .camp{
+      background: rgba(255,255,255,.93);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+    }
+    .campTop{
+      padding:14px 14px;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      background: linear-gradient(135deg, rgba(30,99,255,.14), rgba(25,182,122,.10), rgba(215,175,74,.16));
+      border-bottom:1px solid var(--line);
+    }
+    .campTop b{color:var(--blue);font-weight:1200}
+    .campBody{padding:14px;color:var(--muted)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    footer{
+      margin-top:26px;
+      border-top:1px solid var(--line);
+      padding:18px 0 86px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footerGrid{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+    .donateBar{
+      position:fixed;left:0;right:0;bottom:0;z-index:60;
+      background:rgba(11,18,32,.94);
+      border-top:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .donateBarInner{
+      max-width:1120px;margin:0 auto;
+      padding:12px 16px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      color:#fff;
+    }
+    .donateBarInner b{font-weight:1200}
+    .donateBarBtns{display:flex;gap:10px;flex-wrap:wrap}
+
+    .btnBar{
+      border:none;
+      padding:10px 12px;border-radius:999px;
+      color:#1b1402;font-weight:1200;
+      background: linear-gradient(135deg, #f3d37f, var(--gold));
+      cursor:pointer;
+    }
+    .btnBarGhost{
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-weight:1000;
+      padding:10px 12px;border-radius:999px;
+      cursor:pointer;
+    }
+    .btnBar:hover,.btnBarGhost:hover{opacity:.92}
+
+    /* language switch */
+    .langSelect{
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--blue);
+      cursor:pointer;
+      font-weight:950;
+    }
+    .langSelect:focus{outline:2px solid rgba(30,99,255,.25); outline-offset:2px;}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <b>Sauver Giulia</b>
+        <small>Recherche PKS</small>
+      </div>
+
+      <nav aria-label="Navigation">
+        <a href="#inicio">Accueil</a>
+        <a href="#video">Vidéo</a>
+        <a href="#fotos">Photos</a>
+        <a href="#diagnostico">Diagnostic</a>
+        <a href="#pesquisa">Recherche</a>
+        <a href="#campanhas">Campagnes</a>
+        <a href="#doacoes">Dons</a>
+      </nav>
+
+      <div class="controls">
+        <button class="btn btnPrimary" onclick="scrollTo('doacoes')">Faire un don</button>
+        <button class="btn" onclick="copyLink()">Copier le lien</button>
+        <button class="btn" onclick="shareWhatsApp()">WhatsApp</button>
+
+        <select class="langSelect" id="langSelect" aria-label="Langue">
+          <option value="pt">PT</option>
+          <option value="fr" selected>FR</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="inicio" class="heroTop" aria-label="Couverture">
+      <div class="heroTopInner">
+        <div class="heroText">
+          <p class="heroKicker">Une campagne réelle. Une course contre le temps.</p>
+          <h1 class="heroTitle">Sauver Giulia</h1>
+
+          <p class="heroSub">
+            Notre fille a le <b>syndrome de Pallister-Killian (PKS)</b>.
+            Aujourd’hui, il n’existe pas de traitement curatif — mais il existe une opportunité concrète :
+            lancer une <b>recherche avec des organoïdes cérébraux</b> dès que nous réunissons le budget initial.
+          </p>
+
+          <div class="heroCTA">
+            <button class="btn btnPrimary" onclick="scrollTo('doacoes')">Faire un don</button>
+            <button class="btn btnBlue" onclick="scrollTo('video')">Voir la vidéo</button>
+          </div>
+
+          <div class="pills">
+            <span class="pill">🧠 Organoïdes cérébraux</span>
+            <span class="pill">👶 Phase initiale : 3 enfants</span>
+            <span class="pill">🎯 Objectif : 500 000 $</span>
+          </div>
+        </div>
+
+        <div class="heroPhoto">
+          <img
+            src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=2000&q=80"
+            alt="Photo de couverture (placeholder)"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <h2 class="sectionTitle">Le combat de Giulia contre le PKS</h2>
+      <p class="sectionSub">
+        La vidéo est la manière la plus directe de comprendre qui est Giulia et pourquoi nous demandons de l’aide pour lancer la recherche.
+      </p>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="cardInner">
+            <h3>Regarder la vidéo</h3>
+
+            <div class="videoWrap">
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_AQUI"
+                title="Vidéo de la campagne"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <p class="muted" style="margin-top:10px;font-size:13px;">
+              Remplacez <b>VIDEO_ID_AQUI</b> par l’ID YouTube réel.
+            </p>
+
+            <div class="row">
+              <button class="btn btnPrimary" onclick="scrollTo('doacoes')">Faire un don</button>
+              <button class="btn" onclick="shareWhatsApp()">Partager</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <h3>Pourquoi nous demandons de l’aide</h3>
+
+            <p>
+              Giulia a le <b>syndrome de Pallister-Killian (PKS)</b>,
+              une maladie génétique rare qui, à ce jour, <b>n’a pas de traitement curatif</b>.
+            </p>
+
+            <p style="margin-top:10px;">
+              Il existe une opportunité réelle de lancer une
+              <b>recherche avec des organoïdes cérébraux</b>.
+              Le projet est prêt. Le laboratoire est prêt.
+            </p>
+
+            <p style="margin-top:10px;">
+              Ce qui manque aujourd’hui, ce sont les ressources financières.
+            </p>
+
+            <p style="margin-top:10px;">
+              🎯 <b>Objectif : 500 000 $</b>
+            </p>
+
+            <p style="margin-top:10px;">
+              Chaque jour compte. Chaque mois de retard, c’est du temps perdu pour Giulia.
+            </p>
+
+            <div class="row" style="margin-top:14px;">
+              <button class="btn btnPrimary" onclick="scrollTo('doacoes')">Aider maintenant</button>
+              <button class="btn" onclick="scrollTo('diagnostico')">En savoir plus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fotos">
+      <h2 class="sectionTitle">Photos de Giulia</h2>
+      <p class="sectionSub">
+        Quelques photos pour rencontrer Giulia. Nous les remplacerons ensuite par les vraies.
+      </p>
+
+      <div class="photos" aria-label="Photos">
+        <div class="photoBig">
+          <img
+            src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1600&q=80"
+            alt="Photo principale (placeholder)"
+          >
+        </div>
+
+        <div class="photoGrid">
+          <div class="photoSmall">
+            <img
+              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"
+              alt="Photo (placeholder)"
+            >
+          </div>
+
+          <div class="photoSmall">
+            <img
+              src="https://images.unsplash.com/photo-1520975958225-1c83d24b49c3?auto=format&fit=crop&w=1200&q=80"
+              alt="Photo (placeholder)"
+            >
+          </div>
+
+          <div class="photoSmall">
+            <img
+              src="https://images.unsplash.com/photo-1517232115160-ff93364542dd?auto=format&fit=crop&w=1200&q=80"
+              alt="Photo (placeholder)"
+            >
+          </div>
+
+          <div class="photoSmall">
+            <img
+              src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1200&q=80"
+              alt="Photo (placeholder)"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostico">
+      <h2 class="sectionTitle">Diagnostic : Pallister-Killian (PKS)</h2>
+      <p class="sectionSub">
+        Le PKS est rare et variable. En mosaïque, l’anomalie peut ne pas apparaître dans le sang, ce qui peut retarder le diagnostic.
+      </p>
+
+      <div class="grid2" style="grid-template-columns:1fr 1fr;">
+        <div class="card">
+          <div class="cardInner">
+            <h3>Qu’est-ce que c’est ?</h3>
+
+            <p>
+              Le <b>syndrome de Pallister-Killian (PKS)</b> est une condition génétique rare qui affecte le développement neurologique et moteur.
+            </p>
+
+            <p>
+              Il apparaît sous forme de <b>mosaïque</b>, ce qui signifie que seules certaines cellules présentent l’anomalie.
+              Cela rend le diagnostic plus difficile et explique pourquoi chaque enfant peut être touché différemment.
+            </p>
+
+            <p class="muted" style="margin-top:10px;">
+              Certains enfants ont une hypotonie, des retards moteurs et des difficultés de communication, tandis que d’autres ont des formes plus légères.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <h3>Existe-t-il un traitement ?</h3>
+
+            <p>
+              À ce jour, il <b>n’existe pas de traitement curatif spécifique</b> pour le PKS.
+            </p>
+
+            <p>
+              La médecine propose des soins de support : <b>kinésithérapie</b>, <b>ergothérapie</b>, <b>orthophonie</b> et suivi médical.
+            </p>
+
+            <p class="muted" style="margin-top:10px;">
+              Ces soins sont essentiels, mais ils ne traitent pas directement la cause.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesquisa">
+      <h2 class="sectionTitle">Recherche avec des organoïdes cérébraux</h2>
+      <p class="sectionSub">
+        Les organoïdes sont des “mini-modèles” créés à partir des cellules du patient, pour mieux comprendre les mécanismes et tester des hypothèses.
+      </p>
+
+      <div class="grid2" style="grid-template-columns:1fr 1fr;">
+        <div class="card">
+          <div class="cardInner">
+            <h3>Pourquoi la recherche est si importante</h3>
+
+            <p>
+              Le PKS est une maladie rare, et reçoit donc peu d’investissements en recherche.
+            </p>
+
+            <p>
+              Mais les progrès récents ouvrent de nouvelles possibilités.
+              Aujourd’hui, il est possible d’étudier la maladie en laboratoire grâce à des <b>organoïdes cérébraux</b>.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <h3>Ce que cette approche permet</h3>
+
+            <ul class="list">
+              <li>Reproduire la maladie en laboratoire</li>
+              <li>Tester des médicaments déjà existants</li>
+              <li>Évaluer l’efficacité et la toxicité</li>
+              <li>Accélérer le parcours de recherche</li>
+            </ul>
+
+            <p class="muted" style="margin-top:10px;">
+              Sans recherche, rien ne change. Avec la recherche, une <b>possibilité réelle</b> apparaît : rendre une maladie sans solution, traitable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="campanhas">
+      <h2 class="sectionTitle">Campagnes (tombolas et actions)</h2>
+      <p class="sectionSub">Nous menons des actions pour élargir la portée (liens officiels plus tard).</p>
+
+      <div class="campaigns">
+        <div class="camp">
+          <div class="campTop">
+            <b>🎟️ Tombola #1</b><span class="muted">active</span>
+          </div>
+          <div class="campBody">
+            Description courte.
+            <div class="row">
+              <button class="btn btnPrimary" onclick="openLink(RIFA1_LINK)">Participer</button>
+              <button class="btn" onclick="openLink(RIFA1_REGRAS)">Règles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="camp">
+          <div class="campTop">
+            <b>🛍️ Action solidaire</b><span class="muted">bientôt</span>
+          </div>
+          <div class="campBody">
+            Campagne avec partenaires.
+            <div class="row">
+              <button class="btn btnPrimary" onclick="openLink(ACAO_LINK)">Voir</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="camp">
+          <div class="campTop">
+            <b>📣 Partage</b><span class="muted">toujours</span>
+          </div>
+          <div class="campBody">
+            Partager aide énormément.
+            <div class="row">
+              <button class="btn btnBlue" onclick="shareWhatsApp()">Partager</button>
+              <button class="btn" onclick="copyLink()">Copier le lien</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="doacoes">
+      <h2 class="sectionTitle">Dons</h2>
+      <p class="sectionSub">
+        Chaque don accélère la recherche. Si vous ne pouvez pas donner maintenant, partager fait déjà une grande différence.
+      </p>
+
+      <div class="campaigns">
+        <div class="camp">
+          <div class="campTop">
+            <b>🇧🇷 PIX (Brésil)</b><span class="muted">rapide et sans frais</span>
+          </div>
+          <div class="campBody">
+            <div class="muted">Clé PIX :</div>
+            <div style="font-weight:1200;font-size:16px;margin-top:6px;" id="pixKey">VOTRE_CLE_PIX_ICI</div>
+
+            <div class="row">
+              <button class="btn btnPrimary" onclick="copyPix()">Copier la clé PIX</button>
+              <button class="btn" onclick="openLink(PIX_LINK_QR)">Ouvrir QR/Lien</button>
+            </div>
+
+            <div class="muted" style="margin-top:10px;font-size:13px;">
+              (Nous ajouterons les liens officiels ensuite.)
+            </div>
+          </div>
+        </div>
+
+        <div class="camp">
+          <div class="campTop">
+            <b>🌍 PayPal</b><span class="muted">international</span>
+          </div>
+          <div class="campBody">
+            Don via PayPal.
+            <div class="row">
+              <button class="btn btnPrimary" onclick="openLink(PAYPAL_LINK)">Donner via PayPal</button>
+            </div>
+            <div class="muted" style="margin-top:10px;font-size:13px;">
+              (Lien officiel à ajouter.)
+            </div>
+          </div>
+        </div>
+
+        <div class="camp">
+          <div class="campTop">
+            <b>💛 GoFundMe</b><span class="muted">campagne principale</span>
+          </div>
+          <div class="campBody">
+            Donner via GoFundMe.
+            <div class="row">
+              <button class="btn btnPrimary" onclick="openLink(GOFUNDME_LINK)">Donner via GoFundMe</button>
+            </div>
+            <div class="muted" style="margin-top:10px;font-size:13px;">
+              (Lien officiel à ajouter.)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="cardInner">
+          <h3>Vous ne pouvez pas donner maintenant ?</h3>
+          <p>Partagez avec <b>10 personnes</b>. Une campagne grandit quand beaucoup de gens la voient.</p>
+          <div class="row" style="margin-top:12px;">
+            <button class="btn btnBlue" onclick="shareWhatsApp()">Partager sur WhatsApp</button>
+            <button class="btn" onclick="copyLink()">Copier le lien</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footerGrid">
+        <div class="muted" style="margin-top:10px;">
+          Contact (à compléter) : <b>email@exemple.org</b> · Instagram : <b>@sauvergiulia</b>
+        </div>
+        <div>© <span id="year"></span> Fait par une mère et un père, par amour pour Giulia.</div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="donateBar" role="region" aria-label="Barre de don">
+    <div class="donateBarInner">
+      <div>
+        <b>Objectif :</b> <span>500 000 $</span> · <b>PKS</b> ·
+        <span style="color:rgba(255,255,255,.78)">Recherche prête à démarrer</span>
+      </div>
+      <div class="donateBarBtns">
+        <button class="btnBar" onclick="scrollTo('doacoes')">Faire un don</button>
+        <button class="btnBarGhost" onclick="copyLink()">Copier le lien</button>
+        <button class="btnBarGhost" onclick="shareWhatsApp()">WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PIX_LINK_QR   = "#";
+    const PAYPAL_LINK   = "#";
+    const GOFUNDME_LINK = "#";
+    const RIFA1_LINK    = "#";
+    const RIFA1_REGRAS  = "#";
+    const ACAO_LINK     = "#";
+
+    const SHARE_TEXT = "Aidez à sauver Giulia et à lancer la recherche sur le PKS. Lien :";
+
+    function scrollTo(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:"smooth"});
+    }
+
+    function openLink(url){
+      if(!url || url === "#"){
+        alert("Les liens officiels seront ajoutés après validation du layout.");
+        return;
+      }
+      window.open(url, "_blank");
+    }
+
+    function copyLink(){
+      const url = location.href;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url)
+          .then(()=>alert("Lien copié !"))
+          .catch(()=>prompt("Copiez le lien :", url));
+      }else{
+        prompt("Copiez le lien :", url);
+      }
+    }
+
+    function shareWhatsApp(){
+      const text = SHARE_TEXT + " " + location.href;
+      window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+    }
+
+    function copyPix(){
+      const keyEl = document.getElementById("pixKey");
+      const key = (keyEl ? keyEl.textContent.trim() : "");
+
+      if(!key || key === "VOTRE_CLE_PIX_ICI"){
+        alert("La clé PIX officielle sera ajoutée après validation.");
+        return;
+      }
+
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(key)
+          .then(()=>alert("Clé PIX copiée !"))
+          .catch(()=>prompt("Copiez la clé PIX :", key));
+      }else{
+        prompt("Copiez la clé PIX :", key);
+      }
+    }
+
+    // Language switch
+    (function(){
+      const sel = document.getElementById("langSelect");
+      if(!sel) return;
+      sel.addEventListener("change", function(){
+        const v = sel.value;
+        if(v === "pt") window.location.href = "index.html";
+        if(v === "fr") window.location.href = "fr.html";
+        if(v === "en") window.location.href = "en.html";
+        if(v === "es") window.location.href = "es.html";
+      });
+    })();
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
